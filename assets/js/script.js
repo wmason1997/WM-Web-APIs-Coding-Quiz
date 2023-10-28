@@ -1,9 +1,4 @@
-// Question 1
-// {
-//      question: "What does API stand for in coding?";
-//      choices: ["application programming interface", "attribute processing inadeqacy", "abstraction passkey indexing", "algorithm partition ideation"];
-//      answer: "application programming interface"
-// }
+// Define question variables
 const question_1 = {
       questionString: "What does API stand for in coding?",
       choices: ["application programming interface", "attribute processing inadeqacy", "abstraction passkey indexing", "algorithm partition ideation"],
@@ -13,11 +8,10 @@ const question_1 = {
 const question_2 = {
 
       questionString: "What does DOM stand for in coding?",
-      choicesString: ["database operator matrix", "debugger origin mining", "deployment online mainframe", "document object model"],
+      choices: ["database operator matrix", "debugger origin mining", "deployment online mainframe", "document object model"],
       answer: "document object model"
  };
 
-// Question 3
 
 const question_3 = {
 
@@ -39,6 +33,10 @@ const question_5 = {
      answer: "addEventListener()"
 }
 
+var question_array = [question_1, question_2, question_3, question_4, question_5];
+var currentQuestionIndex = 0;
+var question = '';
+
 
 
 var startQuiz = document.querySelector(".start-quiz-button");
@@ -47,17 +45,27 @@ var timer;
 var timerCount;
 var finishedQuestions = false;
 
-function displayQuestion(question) {
+function displayQuestion() {
     const mainContent = document.getElementById("main-area");
+    const feedback = document.getElementById("right-or-wrong-feedback");
 
+    // Check if all questions have been answered/displayed
+    if (currentQuestionIndex >= question_array.length) {
+        mainContent.innerHTML = "All done! Your final score is "; // add time score
+        return;
+    }
+    
     // Clear the main area
     mainContent.innerHTML = "";
+
+    // Create the current question and pull its subfields
+    question = question_array[currentQuestionIndex];
 
     // Create elements for the question and options
     const questionElement = document.createElement("p");
     questionElement.textContent = question.questionString;
 
-    const choicesList = document.createElement("ul");
+    choicesList = document.createElement("ul");
     question.choices.forEach(function(choice) {
         const choiceItem = document.createElement("li");
         choiceItem.textContent = choice;
@@ -67,11 +75,27 @@ function displayQuestion(question) {
         choiceItem.addEventListener("click", function() {
             if (choiceItem.textContent === question.answer) {
                 console.log("Correct!");
+                feedback.textContent = "Correct";
+
+                //increment question index
+                currentQuestionIndex = currentQuestionIndex + 1;
+                
+                // display next question
+                displayQuestion();
+
             } else {
                 console.log("Wrong!");
+                feedback.textContent = "Wrong";
+                // NEED TO ADD -10 SECONDS FUNCTIONALITY HERE
+
+                // increment question index
+                currentQuestionIndex = currentQuestionIndex + 1;
+
+                // display next question
+                displayQuestion();
+
             }
         });
-
 
         choicesList.appendChild(choiceItem);
     });
@@ -79,16 +103,14 @@ function displayQuestion(question) {
     // Append the question and options to the main section
     mainContent.appendChild(questionElement);
     mainContent.appendChild(choicesList);
-
-
-
 }
 
 function startGame() {
     finishedQuestions = false;
     timerCount = 60;
     startTimer()
-    displayQuestion(question_1); // function
+    displayQuestion(); // function
+    
 
 }
 
@@ -100,14 +122,7 @@ function startGame() {
 
 startQuiz.addEventListener("click", startGame);
 
-// // Attach event listener to choiceItem element
-// choiceItem.addEventListener("click", function() {
-//     if (choiceItem === question.answer) {
-//         console.log("Correct!");
-//     } else {
-//         console.log("Wrong!");
-//     }
-// });
+
 
 // init function made potentially
 
