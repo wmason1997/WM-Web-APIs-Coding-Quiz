@@ -61,12 +61,27 @@ function displayQuestion(question) {
     question.choices.forEach(function(choice) {
         const choiceItem = document.createElement("li");
         choiceItem.textContent = choice;
+
+
+        // Attach event listener to choiceItem element
+        choiceItem.addEventListener("click", function() {
+            if (choiceItem.textContent === question.answer) {
+                console.log("Correct!");
+            } else {
+                console.log("Wrong!");
+            }
+        });
+
+
         choicesList.appendChild(choiceItem);
     });
 
     // Append the question and options to the main section
     mainContent.appendChild(questionElement);
     mainContent.appendChild(choicesList);
+
+
+
 }
 
 function startGame() {
@@ -84,6 +99,15 @@ function startGame() {
 // }
 
 startQuiz.addEventListener("click", startGame);
+
+// // Attach event listener to choiceItem element
+// choiceItem.addEventListener("click", function() {
+//     if (choiceItem === question.answer) {
+//         console.log("Correct!");
+//     } else {
+//         console.log("Wrong!");
+//     }
+// });
 
 // init function made potentially
 
