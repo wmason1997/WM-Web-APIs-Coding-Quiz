@@ -74,7 +74,6 @@ function displayQuestion() {
         // Attach event listener to choiceItem element
         choiceItem.addEventListener("click", function() {
             if (choiceItem.textContent === question.answer) {
-                console.log("Correct!");
                 feedback.textContent = "Correct";
 
                 //increment question index
@@ -84,9 +83,8 @@ function displayQuestion() {
                 displayQuestion();
 
             } else {
-                console.log("Wrong!");
                 feedback.textContent = "Wrong";
-                // NEED TO ADD -10 SECONDS FUNCTIONALITY HERE
+                timerCount = timerCount - 10; // Subtracts 10 seconds as the penalty for incorrect answer
 
                 // increment question index
                 currentQuestionIndex = currentQuestionIndex + 1;
