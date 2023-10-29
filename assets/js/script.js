@@ -34,6 +34,7 @@ const question_5 = {
 }
 
 const xyz = document.getElementById("game-end-button");
+const highscores_display = document.getElementById("highscores-display");
 
 var question_array = [question_1, question_2, question_3, question_4, question_5];
 var currentQuestionIndex = 0;
@@ -214,7 +215,8 @@ initialsSubmit.addEventListener("click", function () {
         };
         highscores_array.push(new_score);
         localStorage.setItem('highscores', JSON.stringify(highscores_array));
-        highscoresShouldDisplay = true;
+        // highscoresShouldDisplay = true;
+        highscores_display.classList.remove("hide");
     }
 
 
@@ -224,14 +226,15 @@ initialsSubmit.addEventListener("click", function () {
 
 });
 
-const highscores_display = document.getElementById("highscores-display");
+// const highscores_display = document.getElementById("highscores-display");
+//highscores_display.classList.remove("hide");
 
 // trying to toggle the highscores display
-if (highscoresShouldDisplay) {
-    highscores_display.classList.remove("hide");
-} else {
-    highscores_display.classList.add("hide");
-};
+// if (highscoresShouldDisplay) {
+//     highscores_display.classList.remove("hide");
+// } else {
+//     highscores_display.classList.add("hide");
+// };
 
 function highscoresOrder(){
     gameEndBtn.setAttribute('class', 'hide');
