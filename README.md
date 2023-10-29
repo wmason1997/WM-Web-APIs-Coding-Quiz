@@ -15,4 +15,4 @@ I had a tutoring session with Sandy Smith on Saturday 10/28/2023. They helped me
 
 
 ## Link to Deployed Application ##
-[William Mason](https://wmason1997.github.io/WM-Web-APIs-Coding-Quiz/)
+[William Mason Web APIs Coding Quiz](https://wmason1997.github.io/WM-Web-APIs-Coding-Quiz/)
