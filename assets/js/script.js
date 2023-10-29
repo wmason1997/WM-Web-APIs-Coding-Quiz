@@ -41,6 +41,8 @@ var currentQuestionIndex = 0;
 var question = '';
 var initialsEl = document.getElementById('initials');
 
+var highscores = localStorage.getItem("highscores");
+
 
 
 var startQuiz = document.querySelector(".start-quiz-button");
@@ -200,12 +202,13 @@ function startTimer() {
 }
 
 //const gameEndDiv = document.getElementById("highscores-display");
-var highscoresShouldDisplay = false;
+//var highscoresShouldDisplay = false;
 
 // var initialsSubmit = document.querySelector(".submit-initials");
 var initialsSubmit = document.getElementById("submit-initials");
 
-initialsSubmit.addEventListener("click", function () {
+initialsSubmit.addEventListener("click", function (event) {
+    event.preventDefault();
     var initials = initialsEl.value.trim();
     if (initials !== ""){
         var highscores_array = JSON.parse(localStorage.getItem("highscores")) || [];
@@ -217,7 +220,18 @@ initialsSubmit.addEventListener("click", function () {
         localStorage.setItem('highscores', JSON.stringify(highscores_array));
         // highscoresShouldDisplay = true;
         highscores_display.classList.remove("hide");
-    }
+        // should add the code to retrieve the locally stored
+        console.log(highscores_array);
+        console.log(new_score.score);
+        // console.log(highscores_array["score"]);
+        // add ordering and displaying code here
+        // orderAndDisplayHighscores(highscores_array);
+        var operable_highscores_array = JSON.parse(localStorage.getItem('highscores'));
+        console.log(operable_highscores_array.score);
+        console.log(operable_highscores_array.initials);
+
+
+    } // add else maybe for empty input
 
 
     // highscoresOrder() to display order of highscore
