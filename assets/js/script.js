@@ -51,7 +51,10 @@ function displayQuestion() {
 
     // Check if all questions have been answered/displayed
     if (currentQuestionIndex >= question_array.length) {
-        mainContent.innerHTML = "All done! Your final score is "; // add time score
+        finishedQuestions = true;
+        mainContent.innerHTML = "All done! Your final score is " + timerCount + ".\n Enter initials: "; // add time score and prompt for entering initials
+        localStorage.setItem("initials", timerCount);
+        //setHighscore();
         return;
     }
     
@@ -120,6 +123,10 @@ function startGame() {
 
 startQuiz.addEventListener("click", startGame);
 
+
+function setHighscore() {
+
+}
 
 
 // init function made potentially
