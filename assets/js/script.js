@@ -53,8 +53,30 @@ function displayQuestion() {
     // Check if all questions have been answered/displayed
     if (currentQuestionIndex >= question_array.length) {
         finishedQuestions = true;
-        mainContent.textContent = "All done! Your final score is " + timerCount + ".\n Enter initials: "; // add time score and prompt for entering initials
-        localStorage.setItem("initials", timerCount);
+        // mainContent.textContent = "All done! Your final score is " + timerCount; // add time score and prompt for entering initials
+        // Create <p> element
+        // create <input> element
+        // create <button> element as 
+
+        const all_done_paragraph = document.createElement("p");
+        all_done_paragraph.textContent = "All done!";
+        const initials_paragraph = document.createElement("p");
+        initials_paragraph.textContent = "Your final score is ";
+        const score_output_paragraph = document.createElement("p");
+        score_output_paragraph.textContent = timerCount;
+        const initials_input = document.createElement("input");
+        const initials_button = document.createElement("button");
+        initials_button.textContent = "Submit!";
+
+        mainContent.appendChild(all_done_paragraph);
+        mainContent.appendChild(initials_paragraph);
+        mainContent.appendChild(score_output_paragraph);
+        mainContent.appendChild(initials_input);
+        mainContent.appendChild(initials_button);
+
+
+        
+        //localStorage.setItem("initials", timerCount);
         //setHighscore();
         return;
     }
@@ -159,6 +181,9 @@ function startTimer() {
     }, 1000);
 }
 
+//const gameEndDiv = document.getElementById("highscores-display");
+const highscoresShouldDisplay = false;
+
 var initialsSubmit = document.querySelector(".submit-initials");
 initialsSubmit.addEventListener("click", function () {
     var initials = initialsEl.value.trim();
@@ -170,18 +195,31 @@ initialsSubmit.addEventListener("click", function () {
         };
         highscores_array.push(new_score);
         localStorage.setItem('highscores', JSON.stringify(highscores_array));
+        highscoresShouldDisplay = true;
     }
+
 
     // highscoresOrder() to display order of highscore
     
-    
+
 
 });
+
+const highscores_display = document.getElementById("highscores-display");
+
+// trying to toggle the highscores display
+if (highscoresShouldDisplay) {
+    highscores_display.classList.remove("hide");
+} else {
+    highscores_display.classList.add("hide");
+};
+
 function highscoresOrder(){
     gameEndBtn.setAttribute('class', 'hide');
     var highscores_array = JSON.parse(localStorage.getItem("highscores")) || [];
-    // for loop
+    // ordering for loop
 }
 
 //gameEndBtn.setAttribute('class', 'hide');
-//gameEndBtn.removeAttribute('class')
+//gameEndBtn.removeAttribute('class');
+
