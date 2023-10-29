@@ -30,11 +30,22 @@
 
     </section>
 
-    <form>
-        <label for = "initials">Initials: </label>
+    <div id="game-end-button">
+        <h4>Game has ended!</h4> 
+        <!-- add score -->
+        <p >Final Score: <span id = 'span-score-for-time'>0</span></p>
+        <p>Enter your initials: 
+        
+        
         <input type = "initials" name = "initials" id = "initials" placeholder="YOU" />
 
-    </form>
+        <button id="submit-initials">Submit</button>
+        </p>
+    </div>
+
+    <div id="highscores-display">
+        highscores display here
+    </div>
     
 </body>
 <script src="assets/js/script.js"></script>

@@ -36,6 +36,7 @@ const question_5 = {
 var question_array = [question_1, question_2, question_3, question_4, question_5];
 var currentQuestionIndex = 0;
 var question = '';
+var initialsEl = document.getElementById('initials');
 
 
 
@@ -52,7 +53,7 @@ function displayQuestion() {
     // Check if all questions have been answered/displayed
     if (currentQuestionIndex >= question_array.length) {
         finishedQuestions = true;
-        mainContent.innerHTML = "All done! Your final score is " + timerCount + ".\n Enter initials: "; // add time score and prompt for entering initials
+        mainContent.textContent = "All done! Your final score is " + timerCount + ".\n Enter initials: "; // add time score and prompt for entering initials
         localStorage.setItem("initials", timerCount);
         //setHighscore();
         return;
@@ -80,17 +81,18 @@ function displayQuestion() {
                 feedback.textContent = "Correct";
 
                 //increment question index
-                currentQuestionIndex = currentQuestionIndex + 1;
+                currentQuestionIndex++;
                 
                 // display next question
                 displayQuestion();
 
             } else {
                 feedback.textContent = "Wrong";
-                timerCount = timerCount - 10; // Subtracts 10 seconds as the penalty for incorrect answer
+                timerCount -= 10; // Subtracts 10 seconds as the penalty for incorrect answer
+                timerElement.textContent = timerCount;
 
                 // increment question index
-                currentQuestionIndex = currentQuestionIndex + 1;
+                currentQuestionIndex++;
 
                 // display next question
                 displayQuestion();
@@ -137,15 +139,15 @@ function startTimer() {
     timer = setInterval(function() {
         timerCount--;
         timerElement.textContent = timerCount;
-        if (timerCount >= 0) {
+        if (timerCount >= 0 && finishedQuestions) {
             // tests if finished questions condition is met
-            if (finishedQuestions && timerCount > 0) {
+            
                 // ADD LOCAL STORAGE OF REMAINING TIME CODING LINE HERE
                 // setHighscore();
                 clearInterval(timer);
                 // gameFinished();
 
-            }
+            
         }
 
         // Tests if time has run out
@@ -157,4 +159,29 @@ function startTimer() {
     }, 1000);
 }
 
+var initialsSubmit = document.querySelector(".submit-initials");
+initialsSubmit.addEventListener("click", function () {
+    var initials = initialsEl.value.trim();
+    if (initials !== ""){
+        var highscores_array = JSON.parse(localStorage.getItem("highscores")) || [];
+        var new_score = {
+            score: timerCount,
+            initials: initials,
+        };
+        highscores_array.push(new_score);
+        localStorage.setItem('highscores', JSON.stringify(highscores_array));
+    }
 
+    // highscoresOrder() to display order of highscore
+    
+    
+
+});
+function highscoresOrder(){
+    gameEndBtn.setAttribute('class', 'hide');
+    var highscores_array = JSON.parse(localStorage.getItem("highscores")) || [];
+    // for loop
+}
+
+//gameEndBtn.setAttribute('class', 'hide');
+//gameEndBtn.removeAttribute('class')
