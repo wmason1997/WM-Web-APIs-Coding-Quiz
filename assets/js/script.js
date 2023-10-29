@@ -60,26 +60,28 @@ function displayQuestion() {
         // create <input> element
         // create <button> element as 
 
-        const all_done_paragraph = document.createElement("p");
-        all_done_paragraph.textContent = "All done!";
-        const initials_paragraph = document.createElement("p");
-        initials_paragraph.textContent = "Your final score is ";
-        const score_output_paragraph = document.createElement("p");
-        score_output_paragraph.textContent = timerCount;
 
-        const initials_input = document.createElement("input");
-        initials_input.setAttribute('id', 'initials');
+        // COMMENTING OUT FOR NOW UNLESS WE HAVE TO REVERT
+        // const all_done_paragraph = document.createElement("p");
+        // all_done_paragraph.textContent = "All done!";
+        // const initials_paragraph = document.createElement("p");
+        // initials_paragraph.textContent = "Your final score is ";
+        // const score_output_paragraph = document.createElement("p");
+        // score_output_paragraph.textContent = timerCount;
 
-        const initials_button = document.createElement("button");
-        initials_button.setAttribute('id', 'submit-initials'); 
-        initials_button.textContent = "Submit!";
-        initials_button.addEventListener("click", displayHighscores);
+        // const initials_input = document.createElement("input");
+        // initials_input.setAttribute('id', 'initials');
 
-        mainContent.appendChild(all_done_paragraph);
-        mainContent.appendChild(initials_paragraph);
-        mainContent.appendChild(score_output_paragraph);
-        mainContent.appendChild(initials_input);
-        mainContent.appendChild(initials_button);
+        // const initials_button = document.createElement("button");
+        // initials_button.setAttribute('id', 'submit-initials'); 
+        // initials_button.textContent = "Submit!";
+        // initials_button.addEventListener("click", displayHighscores);
+
+        // mainContent.appendChild(all_done_paragraph);
+        // mainContent.appendChild(initials_paragraph);
+        // mainContent.appendChild(score_output_paragraph);
+        // mainContent.appendChild(initials_input);
+        // mainContent.appendChild(initials_button);
 
         // const xyz = document.getElementById("game-end-button");
         xyz.classList.remove("hide"); // removes the hide class from game-end-button id div in index file and it is now visible
@@ -197,9 +199,11 @@ function startTimer() {
 }
 
 //const gameEndDiv = document.getElementById("highscores-display");
-const highscoresShouldDisplay = false;
+var highscoresShouldDisplay = false;
 
-var initialsSubmit = document.querySelector(".submit-initials");
+// var initialsSubmit = document.querySelector(".submit-initials");
+var initialsSubmit = document.getElementById("submit-initials");
+
 initialsSubmit.addEventListener("click", function () {
     var initials = initialsEl.value.trim();
     if (initials !== ""){
