@@ -33,6 +33,8 @@ const question_5 = {
      answer: "addEventListener()"
 }
 
+const xyz = document.getElementById("game-end-button");
+
 var question_array = [question_1, question_2, question_3, question_4, question_5];
 var currentQuestionIndex = 0;
 var question = '';
@@ -64,15 +66,24 @@ function displayQuestion() {
         initials_paragraph.textContent = "Your final score is ";
         const score_output_paragraph = document.createElement("p");
         score_output_paragraph.textContent = timerCount;
+
         const initials_input = document.createElement("input");
+        initials_input.setAttribute('id', 'initials');
+
         const initials_button = document.createElement("button");
+        initials_button.setAttribute('id', 'submit-initials'); 
         initials_button.textContent = "Submit!";
+        initials_button.addEventListener("click", displayHighscores);
 
         mainContent.appendChild(all_done_paragraph);
         mainContent.appendChild(initials_paragraph);
         mainContent.appendChild(score_output_paragraph);
         mainContent.appendChild(initials_input);
         mainContent.appendChild(initials_button);
+
+        // const xyz = document.getElementById("game-end-button");
+        xyz.classList.remove("hide"); // removes the hide class from game-end-button id div in index file and it is now visible
+        // game-end-button
 
 
         
@@ -137,6 +148,10 @@ function startGame() {
     displayQuestion(); // function
     
 
+}
+
+function displayHighscores() {
+    
 }
 
 
