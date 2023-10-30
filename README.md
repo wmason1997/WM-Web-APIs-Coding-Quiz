@@ -1,7 +1,11 @@
 # WM-Web-APIs-Coding-Quiz
 
 ## Description ##
-The assigment this week was to create a website that displayed a timed quiz of coding questions that we were to come up with. The project necessitated DOM manipulation, the use of localStorage and eventListeners/Handlers, and creating functions for certain aspects of the quiz's functionality.
+The project this week was to create a website that displayed a timed quiz of coding questions that we were to come up with. The project necessitated DOM manipulation, the use of localStorage and eventListeners/Handlers, and creating functions for certain aspects of the quiz's functionality.
+
+This project was intended to give us some familiarity with timed coding quizzes that we may encounter in our future job searches. This project's scoring, as per the instructions, does not differentiate between an individual who simply ran out of time and an individual who took 10 seconds to answer all the questions but got each of the five of them wrong - that is to say, both individuals would score zero. What I am getting at here is that the tradeoff between speed and precision was not required to be finetuned, which is why it was not.
+
+This was a very fun project. I enjoyed making up questions and the experience of putting these different concepts together.
 
 ## Credits ##
 I modeled this Web APIs Coding Quiz project after the solved 28-Stu-Mini-Project in the 04-Web-APIs folder of UCSD-VIRT-FSF-PT-09-2023-U-LOLC GitLab repository.
