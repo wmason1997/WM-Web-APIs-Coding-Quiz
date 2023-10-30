@@ -41,7 +41,6 @@ const highscores_display = document.getElementById("highscores-display");
 const highscores_output_placeholder = document.querySelector("#highscores-output");
 
 var currentQuestionIndex = 0;
-var number_of_selection_clicks = 0; // add this to be able to increment and eventually freeze options on last question
 var question = '';
 var initialsEl = document.getElementById('initials');
 var finalScore = document.getElementById('span-score-for-time');
@@ -49,6 +48,7 @@ var finalScore = document.getElementById('span-score-for-time');
 var highscores = localStorage.getItem("highscores");
 
 var table_output = "";
+var has_clicked_view_highscores = false;
 
 var startQuiz = document.querySelector(".start-quiz-button");
 var timerElement = document.querySelector(".timer-count");
@@ -86,7 +86,7 @@ function displayQuestion() {
         // Attach an event listener to every choiceItem element
         choiceItem.addEventListener("click", function() {
             if (choiceItem.textContent === question.answer) {
-                //add button freeze logic here
+                //prevents options on last question from getting clicked more than once and subtracting points
                 if(currentQuestionIndex >= question_array.length){
                     //choicesList.disabled=true;
                     choiceItem.removeEventListener();
@@ -95,13 +95,12 @@ function displayQuestion() {
 
                 //increment question index
                 currentQuestionIndex++;
-                //number_of_selection_clicks++;
                 
                 // display next question
                 displayQuestion();
 
             } else {
-                //add button freeze logic here
+                //prevents options on last question from getting clicked more than once and subtracting points
                 if(currentQuestionIndex >= question_array.length){
                     //choicesList.disabled=true;
                     choiceItem.removeEventListener();
@@ -112,7 +111,6 @@ function displayQuestion() {
 
                 // increment question index
                 currentQuestionIndex++;
-                //number_of_selection_clicks++;
 
                 // display next question
                 displayQuestion();
@@ -151,14 +149,20 @@ function startTimer() {
                 clearInterval(timer);
                 finalScore.textContent = timerCount;
                             
-        }
+        };
 
         // Tests if time has run out
         if (timerCount === 0) {
             // Clears interval
             clearInterval(timer);
-            // gameFinished();
-        }
+            finalScore.textContent = timerCount;
+        };
+
+        if (timerCount <= 0) {
+            // timerCount = 0; // Hardcode so that if person answers enough wrong questions, their score will be zero and not negative
+            clearInterval(timer); // Hardcode so that timer will stop
+            finalScore.textContent = timerCount;
+        };
     }, 1000);
 }
 
@@ -221,6 +225,9 @@ function highscoresOrder(){
 
 var clearHighscoresButton = document.getElementById("clear-highscores-button");
 clearHighscoresButton.addEventListener("click", function(event) {
+    has_clicked_view_highscores = true;
+    //highscores_display.classList.remove("hide");
+
     event.preventDefault();
     localStorage.removeItem("highscores");
     localStorage.clear();
@@ -236,8 +243,22 @@ clearHighscoresButton.addEventListener("click", function(event) {
 
 var highscores_page_button = document.getElementById("highscores-page-button");
 highscores_page_button.addEventListener("click", function(event){
+    //has_clicked_view_highscores = true;
     event.preventDefault();
     // ADD CONDITIONAL LOGIC TO STOP DUPLICATE SCORES FROM BEING DISPLAYED
+
+    if (has_clicked_view_highscores) {
+        highscores_page_button.removeEventListener();
+    };
+
+    if (currentQuestionIndex >= question_array.length) {
+        highscores_page_button.removeEventListener();
+    }
+
+    // if (currentQuestionIndex >= question_array.length || has_clicked_view_highscores) {
+    //     highscores_page_button.removeEventListener();
+    // };
+    
     highscoresOrder();
     highscores_display.classList.remove("hide");
     //highscores_output_placeholder.innerHTML=table_output;
