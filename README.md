@@ -14,7 +14,7 @@ At a certain point, I realized I would have to order the highscores in descendin
 
 I needed help displaying my highscores in a table so I Googled and found this helpful YouTube video [https://www.youtube.com/watch?app=desktop&v=eS-FVnhjvEQ&t=61](https://www.youtube.com/watch?app=desktop&v=eS-FVnhjvEQ&t=61). I modeled the displaying to HTML section of my highscoresOrder() function after the example.
 
-I needed to be able to reload the page for a "Go Back" button when viewing highscores so I Googled that and found this Stack Overflow link that I modeled a button after: [https://stackoverflow.com/questions/29884654/button-that-refreshes-the-page-on-click](https://stackoverflow.com/questions/29884654/button-that-refreshes-the-page-on-click).
+I needed to be able to reload the page for a "Go Back" button when viewing highscores so I Googled and found this Stack Overflow link that I modeled a button after: [https://stackoverflow.com/questions/29884654/button-that-refreshes-the-page-on-click](https://stackoverflow.com/questions/29884654/button-that-refreshes-the-page-on-click).
 
 
 ## Screenshots ##

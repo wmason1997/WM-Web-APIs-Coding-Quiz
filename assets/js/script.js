@@ -211,8 +211,12 @@ clearHighscoresButton.addEventListener("click", function(event) {
     localStorage.removeItem("highscores");
     localStorage.clear();
     highscores_display.classList.add("hide");
-    //table_output="";
-    highscores_output_placeholder.innerHTML = ""; // Need the html to be cleared.
+    table_output=`
+        <tr>
+        </tr>
+    `;
+    highscores_output_placeholder.innerHTML = table_output; // Need the html to be cleared.
+    highscoresOrder();
     console.log("highscores have been cleared");
 });
 
