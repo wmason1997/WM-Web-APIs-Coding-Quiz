@@ -33,17 +33,20 @@ const question_5 = {
      answer: "addEventListener()"
 }
 
+var question_array = [question_1, question_2, question_3, question_4, question_5];
+
+// Define Document Object Model (DOM) variables to reference
 const game_end_button = document.getElementById("game-end-button");
 const highscores_display = document.getElementById("highscores-display");
 const highscores_output_placeholder = document.querySelector("#highscores-output");
 
-var question_array = [question_1, question_2, question_3, question_4, question_5];
 var currentQuestionIndex = 0;
+var number_of_selection_clicks = 0; // add this to be able to increment and eventually freeze options on last question
 var question = '';
 var initialsEl = document.getElementById('initials');
 var finalScore = document.getElementById('span-score-for-time');
 
-var highscores = localStorage.getItem("highscores"); // may need to add a parseing component here
+var highscores = localStorage.getItem("highscores");
 
 var table_output = "";
 
@@ -80,25 +83,36 @@ function displayQuestion() {
         const choiceItem = document.createElement("li");
         choiceItem.textContent = choice;
 
-
-        // Attach event listener to choiceItem element
+        // Attach an event listener to every choiceItem element
         choiceItem.addEventListener("click", function() {
             if (choiceItem.textContent === question.answer) {
+                //add button freeze logic here
+                if(currentQuestionIndex >= question_array.length){
+                    //choicesList.disabled=true;
+                    choiceItem.removeEventListener();
+                };
                 feedback.textContent = "Correct";
 
                 //increment question index
                 currentQuestionIndex++;
+                //number_of_selection_clicks++;
                 
                 // display next question
                 displayQuestion();
 
             } else {
+                //add button freeze logic here
+                if(currentQuestionIndex >= question_array.length){
+                    //choicesList.disabled=true;
+                    choiceItem.removeEventListener();
+                };
                 feedback.textContent = "Wrong";
                 timerCount -= 10; // Subtracts 10 seconds as the penalty for incorrect answer
                 timerElement.textContent = timerCount;
 
                 // increment question index
                 currentQuestionIndex++;
+                //number_of_selection_clicks++;
 
                 // display next question
                 displayQuestion();
