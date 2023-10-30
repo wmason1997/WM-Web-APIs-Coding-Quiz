@@ -33,7 +33,7 @@ const question_5 = {
      answer: "addEventListener()"
 }
 
-const xyz = document.getElementById("game-end-button");
+const game_end_button = document.getElementById("game-end-button");
 const highscores_display = document.getElementById("highscores-display");
 
 var question_array = [question_1, question_2, question_3, question_4, question_5];
@@ -41,7 +41,7 @@ var currentQuestionIndex = 0;
 var question = '';
 var initialsEl = document.getElementById('initials');
 
-var highscores = localStorage.getItem("highscores");
+var highscores = localStorage.getItem("highscores"); // may need to add a parseing component here
 
 
 
@@ -86,8 +86,8 @@ function displayQuestion() {
         // mainContent.appendChild(initials_input);
         // mainContent.appendChild(initials_button);
 
-        // const xyz = document.getElementById("game-end-button");
-        xyz.classList.remove("hide"); // removes the hide class from game-end-button id div in index file and it is now visible
+        
+        game_end_button.classList.remove("hide"); // removes the hide class from game-end-button id div in index file and it is now visible
         // game-end-button
 
 
@@ -223,12 +223,20 @@ initialsSubmit.addEventListener("click", function (event) {
         // should add the code to retrieve the locally stored
         console.log(highscores_array);
         console.log(new_score.score);
+        console.log(new_score.initials);
+        console.log(localStorage.getItem('highscores'));
         // console.log(highscores_array["score"]);
         // add ordering and displaying code here
         // orderAndDisplayHighscores(highscores_array);
         var operable_highscores_array = JSON.parse(localStorage.getItem('highscores'));
-        console.log(operable_highscores_array.score);
-        console.log(operable_highscores_array.initials);
+        console.log(typeof operable_highscores_array);
+        console.log(operable_highscores_array[3].score);
+        console.log(operable_highscores_array[3].initials);
+        console.log(operable_highscores_array.length);
+        //console.log(local)
+
+        //highscoresOrder();
+        highscoresOrder();
 
 
     } // add else maybe for empty input
@@ -251,10 +259,22 @@ initialsSubmit.addEventListener("click", function (event) {
 // };
 
 function highscoresOrder(){
-    gameEndBtn.setAttribute('class', 'hide');
+    //gameEndBtn.setAttribute('class', 'hide');
     var highscores_array = JSON.parse(localStorage.getItem("highscores")) || [];
     // ordering for loop
-}
+    // want it to return the order of the indices from highest score to lowest
+    //for (var i = 0; i < highscores_array.length; i++) {
+    //};
+
+    // sort using https://www.w3schools.com/js/js_array_sort.asp and https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort for reference
+    highscores_array.sort(function(a,b){return b.score-a.score});
+
+    console.log(highscores_array);
+
+
+
+    // second for loop to print them to page
+};
 
 //gameEndBtn.setAttribute('class', 'hide');
 //gameEndBtn.removeAttribute('class');
