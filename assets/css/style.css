@@ -28,10 +28,23 @@ button {
     height: 100vh;
 }
 
-tr, td {
-    display: flex;
+table {
+    /* display: flex;  */ /* messes up Initials Score centering  */
     align-items: center;
     justify-content: center;
  
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 

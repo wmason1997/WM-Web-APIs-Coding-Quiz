@@ -39,21 +39,24 @@
         </p>
     </div>
 
-    <div id="highscores-display" class="hide">
+    <div id="highscores-display" class="hide highscores-output container">
         <p></p>
         <table>
-            <thead>
-                <tr>
-                    <th>Initials</th>
-                    <th>Score</th>
+            <thead style="text-align: center;">
+                <tr style="text-align: center;">
+                    <th style="text-align: center;">Initials</th>
+                    <th style="text-align: center;">Score</th>
                 </tr>
             </thead>
 
             <tbody id="highscores-output"></tbody>
 
         </table>
-        <button id="clear-highscores-button">Clear Highscores</button>
-        <button onclick="window.location.reload();">Go Back (Refresh Page)</button>
+        <br> <!-- added line break for the display-->
+        <div class="buttons">
+            <button id="clear-highscores-button">Clear Highscores</button>
+            <button onclick="window.location.reload();">Go Back (Refresh Page)</button>
+        </div>
     </div>
     
 </body>

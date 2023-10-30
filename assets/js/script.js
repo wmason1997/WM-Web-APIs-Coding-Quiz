@@ -212,14 +212,15 @@ function highscoresOrder(){
     // added in a manner similar to https://www.youtube.com/watch?app=desktop&v=eS-FVnhjvEQ&t=61
     for(var individual_highscore of highscores_array){
         table_output += `
-            <tr>
-                <td>${individual_highscore.initials}</td>
-                <td>${individual_highscore.score}</td>
+            <tr style="text-align: center;">
+                <td style="text-align: center;">${individual_highscore.initials}</td>
+                <td style="text-align: center;">${individual_highscore.score}</td>
             </tr>
         `;
     };
 
     highscores_output_placeholder.innerHTML = table_output;
+    highscores_display.classList.remove("hide"); // added so View Highscores button works after go back. Ma
 };
 
 
