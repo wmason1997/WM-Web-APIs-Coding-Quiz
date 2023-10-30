@@ -59,42 +59,8 @@ function displayQuestion() {
     // Check if all questions have been answered/displayed
     if (currentQuestionIndex >= question_array.length) {
         finishedQuestions = true;
-        // mainContent.textContent = "All done! Your final score is " + timerCount; // add time score and prompt for entering initials
-        // Create <p> element
-        // create <input> element
-        // create <button> element as 
-
-
-        // COMMENTING OUT FOR NOW UNLESS WE HAVE TO REVERT
-        // const all_done_paragraph = document.createElement("p");
-        // all_done_paragraph.textContent = "All done!";
-        // const initials_paragraph = document.createElement("p");
-        // initials_paragraph.textContent = "Your final score is ";
-        // const score_output_paragraph = document.createElement("p");
-        // score_output_paragraph.textContent = timerCount;
-
-        // const initials_input = document.createElement("input");
-        // initials_input.setAttribute('id', 'initials');
-
-        // const initials_button = document.createElement("button");
-        // initials_button.setAttribute('id', 'submit-initials'); 
-        // initials_button.textContent = "Submit!";
-        // initials_button.addEventListener("click", displayHighscores);
-
-        // mainContent.appendChild(all_done_paragraph);
-        // mainContent.appendChild(initials_paragraph);
-        // mainContent.appendChild(score_output_paragraph);
-        // mainContent.appendChild(initials_input);
-        // mainContent.appendChild(initials_button);
-
         
         game_end_button.classList.remove("hide"); // removes the hide class from game-end-button id div in index file and it is now visible
-        // game-end-button
-
-
-        
-        //localStorage.setItem("initials", timerCount);
-        //setHighscore();
         return;
     }
     
@@ -156,21 +122,7 @@ function startGame() {
 
 }
 
-
-// update highscores function
-// function updateHighscores() {
-//
-// }
-
 startQuiz.addEventListener("click", startGame);
-
-
-function setHighscore() {
-
-}
-
-
-// init function made potentially
 
 // startTimer() function
 function startTimer() {
@@ -180,13 +132,9 @@ function startTimer() {
         timerElement.textContent = timerCount;
         if (timerCount >= 0 && finishedQuestions) {
             // tests if finished questions condition is met
-            
                 // ADD LOCAL STORAGE OF REMAINING TIME CODING LINE HERE
-                // setHighscore();
                 clearInterval(timer);
-                // gameFinished();
-
-            
+                            
         }
 
         // Tests if time has run out
@@ -198,10 +146,7 @@ function startTimer() {
     }, 1000);
 }
 
-//const gameEndDiv = document.getElementById("highscores-display");
-//var highscoresShouldDisplay = false;
 
-// var initialsSubmit = document.querySelector(".submit-initials");
 var initialsSubmit = document.getElementById("submit-initials");
 
 initialsSubmit.addEventListener("click", function (event) {
@@ -215,16 +160,13 @@ initialsSubmit.addEventListener("click", function (event) {
         };
         highscores_array.push(new_score);
         localStorage.setItem('highscores', JSON.stringify(highscores_array));
-        // highscoresShouldDisplay = true;
         highscores_display.classList.remove("hide");
-        // should add the code to retrieve the locally stored
+        
         console.log(highscores_array);
         console.log(new_score.score);
         console.log(new_score.initials);
         console.log(localStorage.getItem('highscores'));
-        // console.log(highscores_array["score"]);
-        // add ordering and displaying code here
-        // orderAndDisplayHighscores(highscores_array);
+
         var operable_highscores_array = JSON.parse(localStorage.getItem('highscores'));
         console.log(typeof operable_highscores_array);
         console.log(operable_highscores_array[0].score);
@@ -233,29 +175,11 @@ initialsSubmit.addEventListener("click", function (event) {
         //console.log(local)
 
         highscoresOrder();
-
-
     }
 });
 
-// const highscores_display = document.getElementById("highscores-display");
-//highscores_display.classList.remove("hide");
-
-// trying to toggle the highscores display
-// if (highscoresShouldDisplay) {
-//     highscores_display.classList.remove("hide");
-// } else {
-//     highscores_display.classList.add("hide");
-// };
-
 function highscoresOrder(){
-    //event.preventDefault();
-    //gameEndBtn.setAttribute('class', 'hide');
     var highscores_array = JSON.parse(localStorage.getItem("highscores")) || [];
-    // ordering for loop
-    // want it to return the order of the indices from highest score to lowest
-    //for (var i = 0; i < highscores_array.length; i++) {
-    //};
 
     // sort using https://www.w3schools.com/js/js_array_sort.asp and https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort for reference
     highscores_array.sort(function(a,b){return b.score-a.score});
@@ -264,7 +188,7 @@ function highscoresOrder(){
     // function displayHighscores();
 
     // var table_output = "";
-
+    // added in a manner similar to https://www.youtube.com/watch?app=desktop&v=eS-FVnhjvEQ&t=61
     for(var individual_highscore of highscores_array){
         table_output += `
             <tr>
@@ -275,8 +199,6 @@ function highscoresOrder(){
     };
 
     highscores_output_placeholder.innerHTML = table_output;
-
-    // second for loop to print them to page
 };
 
 
@@ -295,6 +217,7 @@ clearHighscoresButton.addEventListener("click", function(event) {
 var highscores_page_button = document.getElementById("highscores-page-button");
 highscores_page_button.addEventListener("click", function(event){
     event.preventDefault();
+    // ADD CONDITIONAL LOGIC TO STOP DUPLICATE SCORES FROM BEING DISPLAYED
     highscoresOrder();
     highscores_display.classList.remove("hide");
     //highscores_output_placeholder.innerHTML=table_output;
