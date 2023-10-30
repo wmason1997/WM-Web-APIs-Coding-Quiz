@@ -35,6 +35,7 @@ const question_5 = {
 
 const game_end_button = document.getElementById("game-end-button");
 const highscores_display = document.getElementById("highscores-display");
+const highscores_output_placeholder = document.querySelector("#highscores-output");
 
 var question_array = [question_1, question_2, question_3, question_4, question_5];
 var currentQuestionIndex = 0;
@@ -271,7 +272,18 @@ function highscoresOrder(){
 
     console.log(highscores_array);
 
+    var table_output = "";
 
+    for(var individual_highscore of highscores_array){
+        table_output += `
+            <tr>
+                <td>${individual_highscore.initials}</td>
+                <td>${individual_highscore.score}</td>
+            </tr>
+        `;
+    };
+
+    highscores_output_placeholder.innerHTML = table_output;
 
     // second for loop to print them to page
 };

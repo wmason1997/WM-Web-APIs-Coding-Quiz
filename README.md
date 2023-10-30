@@ -1,16 +1,18 @@
 # WM-Web-APIs-Coding-Quiz
 
 ## Description ##
-
+The assigment this week was to create a website that displayed a timed quiz of coding questions that we were to come up with. The project necessitated DOM manipulation, the use of localStorage and eventListeners/Handlers, and creating functions for certain aspects of the quiz's functionality.
 
 ## Credits ##
 I modeled this Web APIs Coding Quiz project after the solved 28-Stu-Mini-Project in the 04-Web-APIs folder of UCSD-VIRT-FSF-PT-09-2023-U-LOLC GitLab repository.
 
-I used ChatGPT for help to write my displayQuestion() function.
+I used ChatGPT for help to write the first version my displayQuestion() function, with question clickthrough and basic recursion as the main functionalities then.
 
-I had a tutoring session with Sandy Smith on Saturday 10/28/2023. They helped me with hiding the game-end-button and highscores-display divs until when I wanted them to display as dictated by the JavaScript. We spent about 20 minutes on the 1 second discrepancy but moved on when we we realized we were not making progress and I had other questions.
+I had a tutoring session with Sandy Smith on Saturday 10/28/2023. They helped me with hiding the game-end-button and highscores-display divs until when I wanted them to display as dictated by the JavaScript. We spent about 20 minutes on the 1 second discrepancy but moved on when we we realized we were not making progress and I had other questions. They helped me begin setting up the localStorage functionality for the highscores.
 
 At a certain point, I realized I would have to order the highscores in descending order by score so I Googled it and consulted [https://www.w3schools.com/js/js_array_sort.asp](https://www.w3schools.com/js/js_array_sort.asp) and [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) to do that in my highscoresOrder() function.
+
+I needed help displaying my highscores in a table so I Googled and found this helpful YouTube video [https://www.youtube.com/watch?app=desktop&v=eS-FVnhjvEQ&t=61](https://www.youtube.com/watch?app=desktop&v=eS-FVnhjvEQ&t=61). I modeled the displaying to HTML section of my highscoresOrder() function after the example.
 
 
 ## Screenshots ##
