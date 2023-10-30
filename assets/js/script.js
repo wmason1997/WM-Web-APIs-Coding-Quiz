@@ -41,13 +41,14 @@ var question_array = [question_1, question_2, question_3, question_4, question_5
 var currentQuestionIndex = 0;
 var question = '';
 var initialsEl = document.getElementById('initials');
+var finalScore = document.getElementById('span-score-for-time');
 
 var highscores = localStorage.getItem("highscores"); // may need to add a parseing component here
 
 var table_output = "";
 
 var startQuiz = document.querySelector(".start-quiz-button");
-var timerElement = document. querySelector(".timer-count");
+var timerElement = document.querySelector(".timer-count");
 var timer;
 var timerCount;
 var finishedQuestions = false;
@@ -134,6 +135,7 @@ function startTimer() {
             // tests if finished questions condition is met
                 // ADD LOCAL STORAGE OF REMAINING TIME CODING LINE HERE
                 clearInterval(timer);
+                finalScore.textContent = timerCount;
                             
         }
 
