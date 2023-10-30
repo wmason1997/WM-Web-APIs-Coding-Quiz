@@ -160,9 +160,9 @@ function startTimer() {
         };
 
         if (timerCount <= 0) {
-            // timerCount = 0; // Hardcode so that if person answers enough wrong questions, their score will be zero and not negative
-            clearInterval(timer); // Hardcode so that timer will stop
-            finalScore.textContent = timerCount;
+            clearInterval(timer); // so that timer will stop
+            finalScore.textContent = timerCount; 
+            game_end_button.classList.remove("hide");
         };
     }, 1000);
 }

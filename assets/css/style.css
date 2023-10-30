@@ -5,4 +5,33 @@
 /* make fancy later */
 body {
     background-position: center;
+    /* background-color: purple; */
+    text-align: center;
+    /* color: purple; */
 }
+
+button {
+    color: purple; /* invert this */
+}
+
+.highscores-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.highscores-output {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+tr, td {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+}
+
