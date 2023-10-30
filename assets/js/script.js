@@ -156,6 +156,7 @@ function startTimer() {
             // Clears interval
             clearInterval(timer);
             finalScore.textContent = timerCount;
+            game_end_button.classList.remove("hide");
         };
 
         if (timerCount <= 0) {
