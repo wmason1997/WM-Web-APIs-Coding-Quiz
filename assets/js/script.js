@@ -156,10 +156,6 @@ function startGame() {
 
 }
 
-function displayHighscores() {
-    
-}
-
 
 // update highscores function
 // function updateHighscores() {
@@ -231,8 +227,8 @@ initialsSubmit.addEventListener("click", function (event) {
         // orderAndDisplayHighscores(highscores_array);
         var operable_highscores_array = JSON.parse(localStorage.getItem('highscores'));
         console.log(typeof operable_highscores_array);
-        console.log(operable_highscores_array[3].score);
-        console.log(operable_highscores_array[3].initials);
+        console.log(operable_highscores_array[0].score);
+        console.log(operable_highscores_array[0].initials);
         console.log(operable_highscores_array.length);
         //console.log(local)
 
@@ -240,13 +236,7 @@ initialsSubmit.addEventListener("click", function (event) {
         highscoresOrder();
 
 
-    } // add else maybe for empty input
-
-
-    // highscoresOrder() to display order of highscore
-    
-
-
+    }
 });
 
 // const highscores_display = document.getElementById("highscores-display");
@@ -271,6 +261,7 @@ function highscoresOrder(){
     highscores_array.sort(function(a,b){return b.score-a.score});
 
     console.log(highscores_array);
+    // function displayHighscores();
 
     var table_output = "";
 
@@ -287,6 +278,15 @@ function highscoresOrder(){
 
     // second for loop to print them to page
 };
+
+
+
+var clearHighscoresButton = document.getElementById("clear-highscores-button");
+clearHighscoresButton.addEventListener("click", function(event) {
+    localStorage.removeItem("highscores");
+    highscores_display.classList.add("hide");
+    console.log("highscores have been cleared");
+});
 
 //gameEndBtn.setAttribute('class', 'hide');
 //gameEndBtn.removeAttribute('class');
