@@ -44,7 +44,7 @@ var initialsEl = document.getElementById('initials');
 
 var highscores = localStorage.getItem("highscores"); // may need to add a parseing component here
 
-
+var table_output = "";
 
 var startQuiz = document.querySelector(".start-quiz-button");
 var timerElement = document. querySelector(".timer-count");
@@ -232,7 +232,6 @@ initialsSubmit.addEventListener("click", function (event) {
         console.log(operable_highscores_array.length);
         //console.log(local)
 
-        //highscoresOrder();
         highscoresOrder();
 
 
@@ -250,6 +249,7 @@ initialsSubmit.addEventListener("click", function (event) {
 // };
 
 function highscoresOrder(){
+    //event.preventDefault();
     //gameEndBtn.setAttribute('class', 'hide');
     var highscores_array = JSON.parse(localStorage.getItem("highscores")) || [];
     // ordering for loop
@@ -263,7 +263,7 @@ function highscoresOrder(){
     console.log(highscores_array);
     // function displayHighscores();
 
-    var table_output = "";
+    // var table_output = "";
 
     for(var individual_highscore of highscores_array){
         table_output += `
@@ -283,9 +283,22 @@ function highscoresOrder(){
 
 var clearHighscoresButton = document.getElementById("clear-highscores-button");
 clearHighscoresButton.addEventListener("click", function(event) {
+    event.preventDefault();
     localStorage.removeItem("highscores");
+    localStorage.clear();
     highscores_display.classList.add("hide");
+    //table_output="";
+    highscores_output_placeholder.innerHTML = ""; // Need the html to be cleared.
     console.log("highscores have been cleared");
+});
+
+var highscores_page_button = document.getElementById("highscores-page-button");
+highscores_page_button.addEventListener("click", function(event){
+    event.preventDefault();
+    highscoresOrder();
+    highscores_display.classList.remove("hide");
+    //highscores_output_placeholder.innerHTML=table_output;
+    console.log("highscores have been displayed from button at top")
 });
 
 //gameEndBtn.setAttribute('class', 'hide');
