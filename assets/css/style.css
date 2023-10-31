@@ -47,7 +47,8 @@ table {
     justify-content: center;
 }
 
-.hovering_add {
-    /* add code to hover on item elements */
+.hovering_add:hover {
+    /* add code to hover on item elements. ADD MORE STYLING */
+    color: green; 
 }
 
