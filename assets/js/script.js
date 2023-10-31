@@ -81,7 +81,7 @@ function displayQuestion() {
     choicesList = document.createElement("ul");
     question.choices.forEach(function(choice) {
         const choiceItem = document.createElement("li");
-        choiceItem.classList.add("hovering_add");
+        choiceItem.classList.add("hovering_add"); // allowed me to target these options in my css stylesheet for hovering color change
         choiceItem.textContent = choice;
 
         // Attach an event listener to every choiceItem element
