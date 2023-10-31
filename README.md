@@ -18,15 +18,17 @@ At a certain point, I realized I would have to order the highscores in descendin
 
 I needed help displaying my highscores in a table so I Googled and found this helpful YouTube video [https://www.youtube.com/watch?app=desktop&v=eS-FVnhjvEQ&t=61](https://www.youtube.com/watch?app=desktop&v=eS-FVnhjvEQ&t=61). I modeled the displaying to HTML section of my highscoresOrder() function after the example.
 
-I needed to be able to reload the page for a "Go Back" button when viewing highscores so I Googled and found this Stack Overflow link that I modeled a button after: [https://stackoverflow.com/questions/29884654/button-that-refreshes-the-page-on-click](https://stackoverflow.com/questions/29884654/button-that-refreshes-the-page-on-click).
+Nirav helped me in office hours to fix a duplicate highscores displaying issue I was facing and he helped me to get my choice items to change color when I hovered over them. Thanks Nirav!
+
+I needed to be able to reload the page for a "Go Back" button when viewing highscores so I Googled and found this Stack Overflow link that I modeled a button after: [https://stackoverflow.com/questions/29884654/button-that-refreshes-the-page-on-click](https://stackoverflow.com/questions/29884654/button-that-refreshes-the-page-on-click). I referenced [https://www.w3schools.com/css/css3_buttons.asp](https://www.w3schools.com/css/css3_buttons.asp) and [https://www.w3schools.com/css/css_selectors.asp#:~:text=The%20CSS%20id%20Selector&text=The%20id%20of%20an%20element,the%20id%20of%20the%20element.](https://www.w3schools.com/css/css_selectors.asp#:~:text=The%20CSS%20id%20Selector&text=The%20id%20of%20an%20element,the%20id%20of%20the%20element.) when working on styling the buttons.
 
 
 ## Screenshots ##
-![Screenshot](assets/images/WM-Coding-Quiz-Start-Page.png)
-![Screenshot](assets/images/WM-Coding-Quiz-Question-Page-Example-1.png)
-![Screenshot](assets/images/WM-Coding-Quiz-Question-Page-Example-2.png)
-![Screenshot](assets/images/WM-Coding-Quiz-Time-Runout.png)
-![Screenshot](assets/images/WM-Coding-Quiz-Highscores-Display.png)
+![Screenshot](assets/images/WM-Coding-Quiz-Start-Page-New.png)
+![Screenshot](assets/images/WM-Coding-Quiz-Question-Page-Example-1-New.png)
+![Screenshot](assets/images/WM-Coding-Quiz-Question-Page-Example-2-New.png)
+![Screenshot](assets/images/WM-Coding-Quiz-Time-Runout-New.png)
+![Screenshot](assets/images/WM-Coding-Quiz-Highscores-Display-New.png)
 
 ## Link to Deployed Application ##
 [William Mason's Web APIs Coding Quiz](https://wmason1997.github.io/WM-Web-APIs-Coding-Quiz/)

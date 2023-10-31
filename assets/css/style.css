@@ -62,25 +62,17 @@ table {
     color: red; 
   }
 
-/* .hovering_add { */
-    /* background-color: purple; */
-    /* color: green; */
-/* } */
 
-#highscores-page-button:hover {
+/* Con */
+#highscores-page-button:hover, #clear-highscores-button:hover, #go-back-button:hover {
     color: red;
 }
 
-#clear-highscores-button:hover {
-    color: red;
-}
+
 
 .start-quiz-button:hover {
     color: red;
 }
 
-#go-back-button:hover {
-    color: red;
-}
 
 
