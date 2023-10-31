@@ -25,7 +25,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 table {
@@ -47,4 +47,7 @@ table {
     justify-content: center;
 }
 
+.hovering_add {
+    /* add code to hover on item elements */
+}
 

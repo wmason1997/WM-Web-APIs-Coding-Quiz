@@ -81,6 +81,7 @@ function displayQuestion() {
     choicesList = document.createElement("ul");
     question.choices.forEach(function(choice) {
         const choiceItem = document.createElement("li");
+        choiceItem.classList.add("hovering_add");
         choiceItem.textContent = choice;
 
         // Attach an event listener to every choiceItem element
@@ -211,7 +212,7 @@ function highscoresOrder(){
     // var table_output = "";
     // added in a manner similar to https://www.youtube.com/watch?app=desktop&v=eS-FVnhjvEQ&t=61
     for(var individual_highscore of highscores_array){
-        table_output += `
+        table_output = `
             <tr style="text-align: center;">
                 <td style="text-align: center;">${individual_highscore.initials}</td>
                 <td style="text-align: center;">${individual_highscore.score}</td>
