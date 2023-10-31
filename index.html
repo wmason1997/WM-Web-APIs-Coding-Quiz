@@ -1,65 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coding Quiz</title>
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
-</head>
-<body>
-    <nav>
-        <button id="highscores-page-button">View Highscores</button>
-        <section>
-            <section class = "card-timer">
-                <section class = "timer-text"></section>
-                <p> <span class = "large-font timer-count">60</span> seconds remaining</p> <!-- Made the countdown be inline -->
-                <!-- <p >Final Score: <span id = 'span-score-for-time'>0</span></p>  -->
-                <!-- <h1>seconds remaining</h1> -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Coding Quiz</title>
+        <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    </head>
+    <body>
+        <nav>
+            <button id="highscores-page-button">View Highscores</button>
+            <section>
+                <section class="card-timer">
+                    <section class="timer-text"></section>
+                    <p>
+                        <span class="large-font timer-count">60</span> seconds remaining
+                    </p>
+                    <!-- Made the countdown be inline -->
+                    <!-- <p >Final Score: <span id = 'span-score-for-time'>0</span></p>  -->
+                    <!-- <h1>seconds remaining</h1> -->
+                </section>
             </section>
-        </section>
-    </nav>
-
-    <main id="main-area">
-        <h2>Coding Quiz Challenge</h2>
-        <section class = "challenge instructions">Try to answer the following code-related questions within the time limit. 
+        </nav>
+        <main id="main-area">
+            <h2>Coding Quiz Challenge</h2>
+            <section class="challenge instructions">
+                Try to answer the following code-related questions within the time limit. 
             Keep in mind that incorrect answers will penalize your time/score by 10 seconds!
-        </section>
-        <button class="start-quiz-button">Start Quiz</button>
-    </main>
-
-    <section id="right-or-wrong-feedback">
-
-    </section>
-
-    <div id="game-end-button" class = "hide">
-        <h4>Game has ended!</h4> 
-        <p >Final Score: <span id = 'span-score-for-time'>0</span></p>  
-        <p>Enter your initials:       
-        <input type = "initials" name = "initials" id = "initials" placeholder="YOU" />
-        <button id="submit-initials">Submit</button>
-        </p>
-    </div>
-
-    <div id="highscores-display" class="hide highscores-output container">
-        <p></p>
-        <table>
-            <thead style="text-align: center;">
-                <tr style="text-align: center;">
-                    <th style="text-align: center;">Initials</th>
-                    <th style="text-align: center;">Score</th>
-                </tr>
-            </thead>
-
-            <tbody id="highscores-output"></tbody>
-
-        </table>
-        <!-- added line break for the display-->
-        <div class="buttons">
-            <button id="clear-highscores-button">Clear Highscores</button>
-            <button onclick="window.location.reload();">Go Back (Refresh Page)</button>
+            </section>
+            <button class="start-quiz-button">Start Quiz</button>
+        </main>
+        <section id="right-or-wrong-feedback"></section>
+        <div id="game-end-button" class="hide">
+            <h4>Game has ended!</h4>
+            <p>Final Score:
+                <span id="span-score-for-time">0</span>
+            </p>
+            <p>
+                Enter your initials:
+                <input
+                    type="initials"
+                    name="initials"
+                    id="initials"
+                    placeholder="YOU"
+                >
+                <button id="submit-initials">Submit</button>
+            </p>
         </div>
-    </div>
-    
-</body>
-<script src="assets/js/script.js"></script>
+        <div id="highscores-display" class="hide highscores-output container">
+            <p></p>
+            <table>
+                <thead style="text-align: center;">
+                    <tr style="text-align: center;">
+                        <th style="text-align: center;">Initials</th>
+                        <th style="text-align: center;">Score</th>
+                    </tr>
+                </thead>
+                <tbody id="highscores-output"></tbody>
+            </table>
+            <!-- added line break for the display-->
+            <div class="buttons">
+                <button id="clear-highscores-button">Clear Highscores</button>
+                <button id = "go-back-button" onclick="window.location.reload();">Go Back (Refresh Page)</button>
+            </div>
+        </div>
+    </body>
+    <script src="assets/js/script.js"></script>
 </html>

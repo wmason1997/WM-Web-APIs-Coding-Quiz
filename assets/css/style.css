@@ -1,8 +1,4 @@
-.hide {
-    display: none;
-}
-
-/* make fancy later */
+/* Element selectors */
 body {
     background-position: center;
     /* background-color: purple; */
@@ -11,7 +7,22 @@ body {
 }
 
 button {
-    color: purple; /* invert this */
+    background-color: purple; 
+    color: white;/* invert this */
+    padding: 10px 20px;
+    margin: 10px;
+ } 
+
+table {
+    /* display: flex;  */ /* messes up Initials Score centering  */
+    align-items: center;
+    justify-content: center;
+ 
+}
+
+/* Class selectors */
+.hide {
+    display: none;
 }
 
 .highscores-display {
@@ -25,14 +36,6 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* height: 100vh; */
-}
-
-table {
-    /* display: flex;  */ /* messes up Initials Score centering  */
-    align-items: center;
-    justify-content: center;
- 
 }
 
 .container {
@@ -45,10 +48,39 @@ table {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    background-color: gray;
+    color: white;
+    margin: 100px;
+}
+
+.buttons:hover {
+    color: red;
 }
 
 .hovering_add:hover {
-    /* add code to hover on item elements. ADD MORE STYLING */
-    color: green; 
+    
+    color: red; 
+  }
+
+/* .hovering_add { */
+    /* background-color: purple; */
+    /* color: green; */
+/* } */
+
+#highscores-page-button:hover {
+    color: red;
 }
+
+#clear-highscores-button:hover {
+    color: red;
+}
+
+.start-quiz-button:hover {
+    color: red;
+}
+
+#go-back-button:hover {
+    color: red;
+}
+
 
