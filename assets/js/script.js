@@ -65,8 +65,7 @@ var question_array = [
 // Define Document Object Model (DOM) variables to reference
 const game_end_button = document.getElementById("game-end-button");
 const highscores_display = document.getElementById("highscores-display");
-const highscores_output_placeholder =
-  document.querySelector("#highscores-output");
+const highscores_output_placeholder = document.querySelector("#highscores-output");
 
 var currentQuestionIndex = 0;
 var question = "";
@@ -76,7 +75,6 @@ var finalScore = document.getElementById("span-score-for-time");
 var highscores = localStorage.getItem("highscores");
 
 var table_output = "";
-// var has_clicked_view_highscores = false;
 
 var startQuiz = document.querySelector(".start-quiz-button");
 var timerElement = document.querySelector(".timer-count");
@@ -106,12 +104,11 @@ function displayQuestion() {
   const questionElement = document.createElement("p");
   questionElement.textContent = question.questionString;
 
-  choicesList = document.createElement("div");
+  choicesList = document.createElement("div"); //added this for centering quesiton options
   choicesList.classList.add("option_choices");
   question.choices.forEach(function (choice) {
     const choiceItem = document.createElement("button"); // changed from li to button elements
     choiceItem.classList.add("hovering_add"); // allowed me to target these options in my css stylesheet for hovering color change
-    // choiceItem.classList.add("option_choices"); // Want the answer options to stack vertically
     choiceItem.textContent = choice;
 
     // Attach an event listener to every choiceItem element
@@ -172,7 +169,6 @@ function startTimer() {
     timerElement.textContent = timerCount;
     if (timerCount >= 0 && finishedQuestions) {
       // tests if finished questions condition is met
-      // ADD LOCAL STORAGE OF REMAINING TIME CODING LINE HERE
       clearInterval(timer);
       finalScore.textContent = timerCount;
     }
@@ -228,18 +224,16 @@ initialsSubmit.addEventListener("click", function (event) {
 
 function highscoresOrder() {
   var highscores_array = JSON.parse(localStorage.getItem("highscores")) || [];
-
   // sort using https://www.w3schools.com/js/js_array_sort.asp and https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort for reference
   highscores_array.sort(function (a, b) {
     return b.score - a.score;
   });
 
   console.log(highscores_array);
-  // function displayHighscores();
 
   var table_output = ""; // Reinitialize to an empty table_output
   // added in a manner similar to https://www.youtube.com/watch?app=desktop&v=eS-FVnhjvEQ&t=61
-  for (var individual_highscore of highscores_array) { // re-added the += syntax in the line below because it was only displaying the top score before
+  for (var individual_highscore of highscores_array) { // re-added the += syntax in the line below because it was only displaying the top score before upon first submission
     table_output += ` 
             <tr style="text-align: center;">
                 <td style="text-align: center;">${individual_highscore.initials}</td>
@@ -254,7 +248,6 @@ function highscoresOrder() {
 
 var clearHighscoresButton = document.getElementById("clear-highscores-button");
 clearHighscoresButton.addEventListener("click", function (event) {
-  // has_clicked_view_highscores = true;
   //highscores_display.classList.remove("hide");
 
   event.preventDefault();
@@ -272,17 +265,7 @@ clearHighscoresButton.addEventListener("click", function (event) {
 
 var highscores_page_button = document.getElementById("highscores-page-button");
 highscores_page_button.addEventListener("click", function (event) {
-  //has_clicked_view_highscores = true;
   event.preventDefault();
-
-  // if (has_clicked_view_highscores) {
-  //   highscores_page_button.removeEventListener();
-  // }
-
-  // if (currentQuestionIndex >= question_array.length) {
-  //   highscores_page_button.removeEventListener();
-  // }
-
 
   highscoresOrder();
   highscores_display.classList.remove("hide");
