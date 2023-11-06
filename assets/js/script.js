@@ -76,7 +76,7 @@ var finalScore = document.getElementById("span-score-for-time");
 var highscores = localStorage.getItem("highscores");
 
 var table_output = "";
-var has_clicked_view_highscores = false;
+// var has_clicked_view_highscores = false;
 
 var startQuiz = document.querySelector(".start-quiz-button");
 var timerElement = document.querySelector(".timer-count");
@@ -235,10 +235,10 @@ function highscoresOrder() {
   console.log(highscores_array);
   // function displayHighscores();
 
-  // var table_output = "";
+  var table_output = ""; // Reinitialize to an empty table_output
   // added in a manner similar to https://www.youtube.com/watch?app=desktop&v=eS-FVnhjvEQ&t=61
-  for (var individual_highscore of highscores_array) {
-    table_output = `
+  for (var individual_highscore of highscores_array) { // re-added the += syntax in the line below because it was only displaying the top score before
+    table_output += ` 
             <tr style="text-align: center;">
                 <td style="text-align: center;">${individual_highscore.initials}</td>
                 <td style="text-align: center;">${individual_highscore.score}</td>
@@ -252,7 +252,7 @@ function highscoresOrder() {
 
 var clearHighscoresButton = document.getElementById("clear-highscores-button");
 clearHighscoresButton.addEventListener("click", function (event) {
-  has_clicked_view_highscores = true;
+  // has_clicked_view_highscores = true;
   //highscores_display.classList.remove("hide");
 
   event.preventDefault();
@@ -273,9 +273,9 @@ highscores_page_button.addEventListener("click", function (event) {
   //has_clicked_view_highscores = true;
   event.preventDefault();
 
-  if (has_clicked_view_highscores) {
-    highscores_page_button.removeEventListener();
-  }
+  // if (has_clicked_view_highscores) {
+  //   highscores_page_button.removeEventListener();
+  // }
 
   // if (currentQuestionIndex >= question_array.length) {
   //   highscores_page_button.removeEventListener();
