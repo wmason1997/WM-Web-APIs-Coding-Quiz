@@ -106,10 +106,12 @@ function displayQuestion() {
   const questionElement = document.createElement("p");
   questionElement.textContent = question.questionString;
 
-  choicesList = document.createElement("ul");
+  choicesList = document.createElement("div");
+  choicesList.classList.add("option_choices");
   question.choices.forEach(function (choice) {
     const choiceItem = document.createElement("button"); // changed from li to button elements
     choiceItem.classList.add("hovering_add"); // allowed me to target these options in my css stylesheet for hovering color change
+    // choiceItem.classList.add("option_choices"); // Want the answer options to stack vertically
     choiceItem.textContent = choice;
 
     // Attach an event listener to every choiceItem element
