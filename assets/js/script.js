@@ -277,9 +277,9 @@ highscores_page_button.addEventListener("click", function (event) {
     highscores_page_button.removeEventListener();
   }
 
-  if (currentQuestionIndex >= question_array.length) {
-    highscores_page_button.removeEventListener();
-  }
+  // if (currentQuestionIndex >= question_array.length) {
+  //   highscores_page_button.removeEventListener();
+  // }
 
 
   highscoresOrder();
